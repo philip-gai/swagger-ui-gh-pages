@@ -1,0 +1,8 @@
+{
+  "urls": [
+    {
+      "url": "src/specs/swagger-config.yml",
+      "name": "Swagger UI Webpack Setup"
+    }
+  ]
+}
