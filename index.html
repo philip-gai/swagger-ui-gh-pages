@@ -39,12 +39,15 @@
     window.onload = function() {
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        dom_id: "#swagger-ui",
-        configUrl: "swagger-config.json",
+        url: "swagger.yaml",
+        dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
           SwaggerUIBundle.presets.apis,
           SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
         ],
         layout: "StandaloneLayout"
       });
