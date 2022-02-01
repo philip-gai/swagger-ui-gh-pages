@@ -16,8 +16,10 @@ jobs:
         run: |
           echo ::set-output name=release_tag::$(curl -sL https://api.github.com/repos/swagger-api/swagger-ui/releases/latest | jq -r ".tag_name")
           echo ::set-output name=current_tag::$(<swagger-ui.version)
+      - name: Cancel if no new releases
+        if: steps.checkout-swagger-ui.outputs.current_tag == steps.checkout-swagger-ui.outputs.release_tag
+        uses: andymckay/cancel-action@0.2
       - name: Update Swagger UI
-        if: steps.checkout-swagger-ui.outputs.current_tag != steps.checkout-swagger-ui.outputs.release_tag
         env:
           RELEASE_TAG: ${{ steps.checkout-swagger-ui.outputs.release_tag }}
         run: |
@@ -33,7 +35,6 @@ jobs:
           # Update current release
           echo ${{ steps.checkout-swagger-ui.outputs.release_tag }} > swagger-ui.version
       - name: Create Pull Request
-        if: steps.checkout-swagger-ui.outputs.current_tag != steps.checkout-swagger-ui.outputs.release_tag
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update swagger-ui to ${{ steps.checkout-swagger-ui.outputs.release_tag }}
