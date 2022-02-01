@@ -2,8 +2,7 @@
 # Demo of Swagger UI
 
 - Documentation: [swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui)
-- Demo project: [webpack-getting-started](https://github.com/swagger-api/swagger-ui/tree/master/docs/samples/webpack-getting-started)
-- [Swagger UI on GitHub Pages](https://github.com/peter-evans/swagger-github-pages)
+- Template: [Swagger UI on GitHub Pages](https://github.com/peter-evans/swagger-github-pages)
 
 ## Contributing
 
