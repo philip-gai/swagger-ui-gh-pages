@@ -9,10 +9,10 @@ Param(
     [String]$RepoFolder = "swagger-ui-simple/",
 
     [Parameter(Mandatory=$false)]
-    [String]$SpecFolder = "./src/specs/",
+    [String]$SpecFolder = "./specs/",
 
     [Parameter(Mandatory=$false)]
-    [String]$OutFile = "./src/swagger-config.json"
+    [String]$OutFile = "./swagger-config.json"
 )
 
 $ErrorActionPreference = "Stop"
