@@ -7,4 +7,4 @@
 
 ## Contributing
 
-To update the swagger docs, copy your spec files into the [`src/specs`](./src/specs) folder and run [`Update-SwaggerConfig.ps1`](./scripts/Update-SwaggerConfig.ps1).
+To update the swagger docs, copy your spec files into the [`specs`](./specs) folder and run [`Update-SwaggerConfig.ps1`](./scripts/Update-SwaggerConfig.ps1).
