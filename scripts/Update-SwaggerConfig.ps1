@@ -6,9 +6,6 @@
 [CmdletBinding()]
 Param(
     [Parameter(Mandatory=$false)]
-    [String]$RepoFolder = "swagger-ui-simple/",
-
-    [Parameter(Mandatory=$false)]
     [String]$SpecFolder = "./specs/",
 
     [Parameter(Mandatory=$false)]
@@ -16,6 +13,8 @@ Param(
 )
 
 $ErrorActionPreference = "Stop"
+
+$RepoFolder = "$($(Get-Item $PSScriptRoot).parent)/"
 
 if (-not (Get-Module -ListAvailable -Name powershell-yaml)) {
     Install-Module powershell-yaml -Force
@@ -28,7 +27,7 @@ $swaggerConfig = @{}
 $swaggerConfig.urls = @()
 
 foreach ($file in $files) {
-    $url = $file.FullName.split($RepoFolder)[1]
+    $url = $file.FullName.Replace($RepoFolder, "")
     if ($file.Extension -eq ".json") {
         $spec = Get-Content $file.FullName | ConvertFrom-Json
     } elseif ($file.Extension -eq ".yaml" -or $file.Extension -eq ".yml") {
